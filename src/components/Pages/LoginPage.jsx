@@ -1,7 +1,8 @@
+  //import './LoginPage.css'
 export default function LoginPage() {
     return (
         <div>
-            <h1>Login</h1>
+            <h1 className="bg-blue-950">Login</h1>
 
             <form>
                 <div>
@@ -18,7 +19,7 @@ export default function LoginPage() {
 
                 <br />
 
-                <button type="submit" className='bg-blue-500'>login in</button>
+                <button type="submit" className="bg-yellow-300">login</button>
             </form>
         </div>
     );
