@@ -1,0 +1,24 @@
+.counter {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.buttons button {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    background: #4f46e5;
+    color: white;
+    cursor: pointer;
+}
