@@ -4,6 +4,8 @@ import { FaShoppingCart, FaUsers } from "react-icons/fa";
 import { AiFillProduct } from "react-icons/ai";
 import { Routes, Route } from "react-router-dom";
 import AdminProductPage from "./admin/AdminProductPage";
+import AddProductForm from "./admin/AddProductForm";
+
 
 
 export default function AdminHomePage() {
@@ -49,10 +51,11 @@ export default function AdminHomePage() {
       </div>
 
       {/* Main Content */}
-      <div className="w-[80%] h-screen bg-orange-200 p-6">
+      <div className="w-[80%] h-screen bg-orange-200">
         <Routes path="/*">
           <Route path="/dashboard" element={<h1>dashboard</h1>}/>
-          <Route path="/products" element={<AdminProductPage/>}/>   
+          <Route path="/products" element={<AdminProductPage/>}/> 
+          <Route path="/products/addProduct" element={<AddProductForm/>}/>  
           <Route path="/order" element={<h1>orders</h1>}/>
           <Route path="/customer" element={<h1>customer</h1>}/>
         </Routes>

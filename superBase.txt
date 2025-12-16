@@ -1,0 +1,5 @@
+    anon publuc key:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndkeHV4d3d1bG91dmhrZXZsZXBmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU4Nzk2MTQsImV4cCI6MjA4MTQ1NTYxNH0.AUreCpcbe9uUSgBqEgVyl2xa8Xukcozeu9626icJ9JY
+
+
+
+    url :https://wdxuxwwulouvhkevlepf.supabase.co

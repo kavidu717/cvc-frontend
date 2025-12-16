@@ -31,32 +31,31 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="w-full h-screen bg-rose-100 flex items-center justify-center">
-      <div className="w-[500px] h-[500px] bg-pink-50 flex items-center justify-center flex-col gap-4 rounded-2xl shadow-2xl">
-
+    <div className="w-full h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black flex items-center justify-center animate-fadeIn">
+      <div className="w-[500px] h-[500px] bg-gradient-to-br from-slate-400 flex items-center justify-center flex-col gap-6 rounded-2xl shadow-2xl p-6 animate-slideUp">
         <img
           src="/66736.jpg"
           alt=""
-          className="rounded-full w-[100px] h-[100px] object-cover border-4 border-rose-300"
+          className="rounded-full w-[100px] h-[100px] object-cover border-4 border-gradient-to-r from-rose-400 to-pink-500 shadow-lg animate-bounce"
         />
 
-        <span className="text-lg font-semibold text-rose-700">Email</span>
+        <span className="text-lg font-semibold text-slate-800">Email</span>
         <input
           defaultValue={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-72 px-4 py-2 rounded-lg outline-none border border-rose-200 focus:ring-2 focus:ring-rose-400"
+          className="w-72 px-4 py-2 rounded-lg outline-none border border-slate-300 focus:ring-2 focus:ring-gradient-to-r from-slate-500 to-gray-700 transition duration-300 shadow-md"
         />
 
-        <span className="text-lg font-semibold text-rose-700">Password</span>
+        <span className="text-lg font-semibold text-slate-800">Password</span>
         <input
           type="password"
           defaultValue={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-72 px-4 py-2 rounded-lg outline-none border border-rose-200 focus:ring-2 focus:ring-rose-400"
+          className="w-72 px-4 py-2 rounded-lg outline-none border border-slate-300 focus:ring-2 focus:ring-gradient-to-r from-slate-500 to-gray-700 transition duration-300 shadow-md"
         />
 
         <button
-          className="bg-gradient-to-r from-rose-400 to-pink-500 hover:from-rose-500 hover:to-pink-600 text-white font-semibold px-10 py-2 rounded-full transition duration-300 shadow-md"
+          className="bg-gradient-to-r from-slate-700 to-slate-900 hover:from-slate-600 hover:to-gray-800 text-white font-semibold px-10 py-2 rounded-full transition duration-300 shadow-lg transform hover:scale-105 animate-pulse"
           onClick={login}
         >
           Login

@@ -9,6 +9,7 @@ import SignUpPage from './components/Pages/SignUpPage'
 import AdminHomePage from './components/Pages/AdminHomePage'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
+import TestImage from './components/Pages/TestImage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,6 +24,7 @@ function App() {
        <Route path="/login" element={<LoginPage />}></Route>
       <Route path="/signup" element={<SignUpPage />}></Route>
        <Route path="/*" element={<HomePage />}></Route>
+       <Route path="/Testing" element={<TestImage />}></Route>
      </Routes>
      
      
