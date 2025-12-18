@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { FaEdit, FaTrash, FaBoxOpen, FaPlus } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 export default function AdminProductPage() {
   const [products, setProducts] = useState([]);
@@ -21,9 +21,11 @@ export default function AdminProductPage() {
         });
     }
   }, [productLoader]);
+      
+  const navigate=useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-8 relative">
+    <div className="min-h-screen bg-gradient-to-br from-slate-200 to-slate-600 p-8 relative">
       {/* Add Product Button */}
       <Link
         to={"/admin/products/addProduct"}
@@ -100,12 +102,29 @@ export default function AdminProductPage() {
                     {/* Actions */}
                     <td className="px-6 py-4 text-center">
                       <div className="flex justify-center gap-3">
+
+
                         <button
                           className="p-2 bg-yellow-500 text-white rounded-full hover:bg-yellow-600 hover:scale-110 transition transform"
-                          title="Edit Product"
+                          title="Edit Product" onClick={
+                            ()=>{
+                              // move to the edit product 
+                               navigate("/admin/products/editProduct/",
+                                {
+                                  state:{
+                                    product:product
+
+                                    
+                                  }
+                                }
+                               )
+                            }
+                          }
                         >
                           <FaEdit />
                         </button>
+
+
                         <button
                           className="p-2 bg-red-500 text-white rounded-full hover:bg-red-600 hover:scale-110 transition transform"
                           title="Delete Product"

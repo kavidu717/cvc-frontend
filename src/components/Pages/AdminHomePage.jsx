@@ -5,6 +5,7 @@ import { AiFillProduct } from "react-icons/ai";
 import { Routes, Route } from "react-router-dom";
 import AdminProductPage from "./admin/AdminProductPage";
 import AddProductForm from "./admin/AddProductForm";
+import EditProductForm from "./admin/editProductForm";
 
 
 
@@ -55,7 +56,8 @@ export default function AdminHomePage() {
         <Routes path="/*">
           <Route path="/dashboard" element={<h1>dashboard</h1>}/>
           <Route path="/products" element={<AdminProductPage/>}/> 
-          <Route path="/products/addProduct" element={<AddProductForm/>}/>  
+          <Route path="/products/addProduct" element={<AddProductForm/>}/>
+             <Route path="/products/editProduct" element={<EditProductForm/>}/>
           <Route path="/order" element={<h1>orders</h1>}/>
           <Route path="/customer" element={<h1>customer</h1>}/>
         </Routes>

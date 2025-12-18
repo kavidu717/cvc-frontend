@@ -1,34 +1,53 @@
 import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import mediaUpload from "../../../utility/mediaUpload.js";
 
-export default function AddProductForm() {
-  const [productId, setProductId] = useState("");
-  const [productName, setProductName] = useState("");
-  const [alternativeNames, setAlternativeNames] = useState("");
+export default function EddProductForm() {
+ const location = useLocation();
+const navigate = useNavigate();
+
+ const product=location.state.product
+ const altName=product.altName.join(",")
+
+
+if(product==null){
+  navigate("/admin/products")
+}
+
+  const [productId, setProductId] = useState(product.productId);
+  const [productName, setProductName] = useState(product.productName);
+  const [alternativeNames, setAlternativeNames] = useState(altName);
   const [imageFiles, setImageFile] = useState([]);
-  const [price, setPrice] = useState("");
-  const [lastPrice, setLastPrice] = useState("");
-  const [stock, setStock] = useState("");
-  const [description, setDescription] = useState("");
-  const naviGate = useNavigate();
+  const [price, setPrice] = useState(product.price );
+  const [lastPrice, setLastPrice] = useState(product.lastPrice);
+  const [stock, setStock] = useState(product.stock);
+  const [description, setDescription] = useState(product.description);
+  
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  // use the uselocation hook
+ 
+  console.log(location)
 
-    const altnames = alternativeNames.split(",");
-    const promisesArray = [];
+  async function handleSubmit() {
+
+      const altnames = alternativeNames.split(",");
+        const promisesArray = [];
+     let imgurl=product.image
+         if(imageFiles.length>0){
+
+  
 
     for (let i = 0; i < imageFiles.length; i++) {
       promisesArray[i] = mediaUpload(imageFiles[i]);
     }
 
-    const imgurl = await Promise.all(promisesArray);
-    console.log(imgurl);
+     imgurl = await Promise.all(promisesArray);
+}
+   // console.log(imgurl);
 
-    const product = {
+    const productData = {
       productId,
       productName,
       altName: altnames,
@@ -42,14 +61,14 @@ export default function AddProductForm() {
     const token = localStorage.getItem("token");
 
     try {
-      await axios.post("http://localhost:5000/api/product", product, {
+      await axios.put("http://localhost:5000/api/product/"+product.productId, productData, {
         headers: {
           Authorization: "Bearer " + token,
         },
       });
 
       toast.success("Product added successfully");
-      naviGate("/admin/products");
+      navigate("/admin/products");
     } catch (error) {
       console.error(error);
       toast.error("Failed to add product");
@@ -60,7 +79,7 @@ export default function AddProductForm() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-300 via-slate-700 to-purple-100 p-6">
       <div className="w-full max-w-lg bg-slate-400 rounded-2xl shadow-2xl p-8 space-y-5">
         <h1 className="text-3xl font-bold text-center text-gray-800">
-          Add Product
+          Edit Product
         </h1>
 
         {/* Product ID */}
@@ -68,7 +87,7 @@ export default function AddProductForm() {
           <label className="block text-sm font-semibold text-gray-600 mb-1">
             Product ID
           </label>
-          <input
+          <input disabled
             type="text"
             value={productId}
             onChange={(e) => setProductId(e.target.value)}
@@ -179,7 +198,7 @@ export default function AddProductForm() {
                      hover:shadow-lg hover:scale-[1.02]
                      transition-all duration-200"
         >
-          Add Product
+          Update Product
         </button>
       </div>
     </div>

@@ -9,7 +9,8 @@ export default function LoginPage() {
 
   function login() {
     axios
-      .post("http://localhost:5000/api/user/login", {
+    // to change the backend url 
+      .post(import.meta.env.VITE_BACKEND_URL+"/api/user/login", {
         email: email,
         password: password,
       })

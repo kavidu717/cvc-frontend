@@ -2,6 +2,8 @@ import { createClient } from '@supabase/supabase-js'
 const key ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndkeHV4d3d1bG91dmhrZXZsZXBmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU4Nzk2MTQsImV4cCI6MjA4MTQ1NTYxNH0.AUreCpcbe9uUSgBqEgVyl2xa8Xukcozeu9626icJ9JY"
 const url ="https://wdxuxwwulouvhkevlepf.supabase.co"
 
+ const superbase= createClient(url,key)
+
 export default function mediaUpload(file){
       
     return new Promise((resolve, reject) => {
@@ -14,7 +16,7 @@ export default function mediaUpload(file){
       let  fileName = file.name;
            const extension =fileName.split('.')[fileName.split('.').length-1]
          
-             const superbase= createClient(url,key)
+            
          
            // change the file  and because we cant add the same file name
 
