@@ -61,7 +61,7 @@ if(product==null){
     const token = localStorage.getItem("token");
 
     try {
-      await axios.put("http://localhost:5000/api/product/"+product.productId, productData, {
+      await axios.put(import.meta.env.VITE_BACKEND_URL+"/api/product/"+product.productId, productData, {
         headers: {
           Authorization: "Bearer " + token,
         },
