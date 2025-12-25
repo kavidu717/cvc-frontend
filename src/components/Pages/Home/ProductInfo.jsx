@@ -16,7 +16,7 @@ export default function ProductInfo() {
     () => {
       console.log(productId);
 
-      axios.get("http://localhost:5000/api/product/" + productId)
+      axios.get(import.meta.env.VITE_BACKEND_URL+"/api/product/" + productId)
         .then(
           (res) => {
             console.log(res.data);
