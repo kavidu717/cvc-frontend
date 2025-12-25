@@ -5,7 +5,7 @@ import { AiFillProduct } from "react-icons/ai";
 import { Routes, Route } from "react-router-dom";
 import AdminProductPage from "./admin/AdminProductPage";
 import AddProductForm from "./admin/AddProductForm";
-import EditProductForm from "./admin/editProductForm";
+import EditProductForm from "./admin/EditProductForm";
 
 
 
