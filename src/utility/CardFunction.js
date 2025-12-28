@@ -18,7 +18,7 @@ export function addToCart(productId, qty) {
     const cart = localCard();
 
     const index = cart.findIndex(
-        (item) => item.productId == productId // ✅ return the condition
+        (item) =>  item.productId == productId // ✅ return the condition
     );
 
     if (index === -1) {
@@ -42,6 +42,16 @@ export function saveCart(cart) {
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-export function clearCart() {
-    localStorage.removeItem("cart");
-}
+   export function clearCart() {
+     localStorage.removeItem("cart");
+   }
+
+   export function deleteItem(productId) {
+     const cart = localCard();
+      const index = cart.findIndex(
+        (item) =>  item.productId == productId // ✅ return the condition
+    );
+if(index != -1){
+   cart.splice(index,1);
+} 
+   }

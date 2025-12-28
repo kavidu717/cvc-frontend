@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <div className="bg-black  w-full h-[90px] flex items-center justify-center sticky top-0 z-50">
+    <div className="bg-black  w-full h-[90px] flex items-center justify-center sticky top-0 left-0 z-50">
 
       <img
         src="/66736.jpg"
@@ -22,6 +22,9 @@ export default function Header() {
         </Link>
         <Link to="/contact us" className="font-bold hover:border-b hover:text-blue-400">
           CONTACT US
+        </Link>
+         <Link to="/cart" className="font-bold hover:border-b hover:text-blue-400">
+          CART 
         </Link>
       </div>
 
